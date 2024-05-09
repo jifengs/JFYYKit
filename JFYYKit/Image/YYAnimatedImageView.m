@@ -438,9 +438,21 @@ typedef NS_ENUM(NSUInteger, YYAnimatedImageType) {
     }
 }
 
-- (void)displayLayer:(CALayer *)layer {
+- (void)displayLayer:(CALayer *)layer
+{
     if (_curFrame) {
+        layer.contentsScale = _curFrame.scale;
         layer.contents = (__bridge id)_curFrame.CGImage;
+    } else {
+        // If we have no animation frames, call super implementation. iOS 14+ UIImageView use this delegate method for rendering.
+        if ([UIImageView instancesRespondToSelector:@selector(displayLayer:)]) {
+            [super displayLayer:layer];
+        } else {
+            // Fallback to implements the static image rendering by ourselves (like macOS or before iOS 14)
+            _curFrame = super.image;
+            layer.contentsScale = _curFrame.scale;
+            layer.contents = (__bridge id)_curFrame.CGImage;
+        }
     }
 }
 
