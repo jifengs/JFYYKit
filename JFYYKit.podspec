@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = 'JFYYKit'
   s.summary      = 'A collection of iOS components.'
-  s.version      = '1.0.2'
+  s.version      = '1.0.3'
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.authors      = { 'jifengs' => 'jf_feng@126.com' }
   s.homepage     = 'https://github.com/jifengs/JFYYKit.git'
@@ -23,6 +23,9 @@ Pod::Spec.new do |s|
   s.libraries = 'z', 'sqlite3'
   s.frameworks = 'UIKit', 'CoreFoundation', 'CoreText', 'CoreGraphics', 'CoreImage', 'QuartzCore', 'ImageIO', 'AssetsLibrary', 'Accelerate', 'MobileCoreServices', 'SystemConfiguration'
   s.ios.vendored_frameworks = 'Vendor/WebP.framework'
+
+  s.resource_bundles = {'JFYYKit' => ['JFYYKit/PrivacyInfo.xcprivacy']}
+
   
   s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
