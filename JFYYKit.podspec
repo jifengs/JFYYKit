@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = 'JFYYKit'
   s.summary      = 'A collection of iOS components.'
-  s.version      = '1.0.3'
+  s.version      = '1.0.5'
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.authors      = { 'jifengs' => 'jf_feng@126.com' }
   s.homepage     = 'https://github.com/jifengs/JFYYKit.git'
